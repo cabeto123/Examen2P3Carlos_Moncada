@@ -106,7 +106,7 @@ void operacionescurso() {
     }
 
 }
-void listarapuntes() {
+void listarapuntes() {//listar puntos
     cout <<endl<< "Cursos guardados" << endl;
     listarcursos();
     cout << endl<<"Ingrese la posicion del curso para poder listar los apuntes :";
@@ -146,7 +146,7 @@ void eliminarapuntes() {
         cin >> posicion;
     }
     cout << "Apuntes guardados en el curso " << cursos[posicion]->getnombre() << endl;
-    if (cursos[posicion]->tamvector()>0)
+    if (cursos[posicion]->tamvector()>0)//valido que tenga algo en su vector
     {
         for (int i = 0; i < cursos[posicion]->tamvector(); i++)
         {
@@ -227,7 +227,7 @@ void operacionesdeapuntes() {
             }
             break;
         case 2:
-            if (cursos.size()>0)
+            if (cursos.size()>0)//valido que hayan cursos
             {
                 listarapuntes();
             }
@@ -236,7 +236,7 @@ void operacionesdeapuntes() {
             }
             break;
         case 3:
-            if (cursos.size()>0)
+            if (cursos.size()>0)//valido que se pueda eliminar 
             {
                 eliminarapuntes();
             }
