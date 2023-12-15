@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <fstream>
 #include "Apunte.h"
 
 #include "Curso.h"
@@ -264,7 +264,20 @@ void operacionesdeapuntes() {
 
 }
 void guardararchivo() {
-
+    ofstream archivo("archivo.bin", ios::binary|ios::out);
+    if (!archivo.fail())
+    {
+        cout <<endl<< "Error al abrir el archivo " << endl;
+    }
+    else {
+        archivo.write(reinterpret_cast<const char*>(&cursos), sizeof(&cursos));
+        for (int i = 0; i < cursos.size(); i++)
+        {
+            
+            archivo.write(reinterpret_cast<const char*>(&cursos[i]->getnombre()), sizeof(&cursos[i]->getnombre()));
+            vector <Apunte*> apuntes = cursos[i]->getvectorapuntes();
+        }
+    }
 
 
 

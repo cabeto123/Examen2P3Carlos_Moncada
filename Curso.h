@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <fstream>
 #include "Apunte.h"
 using namespace std;
 class Curso
@@ -17,5 +18,8 @@ class Curso
 		string getnombre();
 		int tamvector();
 		void combinarDosApuntes(int posicion);
+		vector <Apunte*> getvectorapuntes();
+		void escribirarchivo(ofstream archivo);
+		void leerarchivo(ifstream archivo);
 };
 
