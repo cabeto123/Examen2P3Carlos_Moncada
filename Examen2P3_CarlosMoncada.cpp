@@ -265,17 +265,14 @@ void operacionesdeapuntes() {
 }
 void guardararchivo() {
     ofstream archivo("archivo.bin", ios::binary|ios::out);
-    if (!archivo.fail())
+    if (archivo.fail())
     {
         cout <<endl<< "Error al abrir el archivo " << endl;
     }
     else {
-        archivo.write(reinterpret_cast<const char*>(&cursos), sizeof(&cursos));
-        for (int i = 0; i < cursos.size(); i++)
+        for (size_t i = 0; i < cursos.size(); i++)
         {
-            
-            archivo.write(reinterpret_cast<const char*>(&cursos[i]->getnombre()), sizeof(&cursos[i]->getnombre()));
-            vector <Apunte*> apuntes = cursos[i]->getvectorapuntes();
+            archivo.write((char*)(cursos.back()), sizeof(Curso));
         }
     }
 
@@ -284,7 +281,7 @@ void guardararchivo() {
 }
 int main() {
     int opcion = 3;
-    while (opcion != 4) {
+    while (opcion != 5) {
         opcion = menu();
         if (opcion == 1) {
             operacionescurso();
@@ -296,5 +293,9 @@ int main() {
         {
             guardararchivo();
         }
+    }
+    for (int i = 0; i < cursos.size(); i++)
+    {
+        delete cursos[i];
     }
 }
