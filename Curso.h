@@ -12,8 +12,10 @@ class Curso
 		Curso(string nombre);
 		void setnombre(string nombre);
 		void anadirapunte(Apunte* a);
+		void eliminarapunte(int indice);
 		Apunte* getapunte(int indice);
 		string getnombre();
-		void combinarDosApuntes();
+		int tamvector();
+		void combinarDosApuntes(int posicion);
 };
 

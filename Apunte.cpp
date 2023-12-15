@@ -36,3 +36,10 @@ string Apunte::getfecha()
 {
 	return this->fecha;
 }
+
+string Apunte::tostring()
+{
+	string salida = "";
+	salida += "Titulo: " + Titulo + "\n" + "Contenido : " + contenido + "\n" + "Fecha : " + fecha + "\n";
+	return salida;
+}

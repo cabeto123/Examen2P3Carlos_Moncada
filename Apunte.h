@@ -15,7 +15,7 @@ class Apunte
 		string gettitulo();
 		string getcontenido();
 		string getfecha();
-
+		string tostring();
 
 };
 
