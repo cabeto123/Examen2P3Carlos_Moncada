@@ -10,6 +10,7 @@ class Curso
 		string nombre;
 		vector <Apunte*> apuntes;
 	public:
+		Curso();
 		Curso(string nombre);
 		void setnombre(string nombre);
 		void anadirapunte(Apunte* a);

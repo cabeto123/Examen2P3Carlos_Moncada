@@ -10,7 +10,7 @@ int menu() {
     int opcion = 0;
     cout << "  ---MENU---\n1-Operaciones Curso\n2-Operaciones Apuntes \n3-Guardar Archivo\n4-Cargar archivo\n5-Salir\n\nIngrese la Opcion: ";
     cin >> opcion;
-    while (opcion < 1 || opcion > 4) {
+    while (opcion < 1 || opcion > 5) {
         cout << endl << "Valor fuera de rango" << endl;
         cout << "  ---MENU---\n1-Operaciones Curso\n2-Operaciones Apuntes \n3-Guardar Archivo\n4-Cargar archivo\n5-sALIR\n\nIngrese la Opcion: ";
         cin >> opcion;
@@ -37,7 +37,7 @@ int submenuapuntes() {
     cout << " ---MENU APUNTES---" << endl;
     cout << "1-Crear Apuntes\n2-Listar Apuntes \n3-Eliminar Apuntes\n4-Combinar Apuntes\n5.Salir\n\nIngrese la Opcion: ";
     cin >> opcion;
-    while (opcion < 1 || opcion > 4) {
+    while (opcion < 1 || opcion > 5) {
         cout << endl << "Valor fuera de rango" << endl;
         cout << " ---MENU---" << endl;
         cout << "1-Crear Apuntes\n2-Listar Apuntes \n3-Eliminar Apuntes\n4-Combinar Apuntes\n5.Salir\n\nIngrese la Opcion: ";
@@ -255,6 +255,8 @@ void operacionesdeapuntes() {
 
             }
             break;
+        case 5:
+            break;
         default:
             cout << "Valor fuera de rango" << endl;
             break;
@@ -272,11 +274,15 @@ void guardararchivo() {
     else {
         for (size_t i = 0; i < cursos.size(); i++)
         {
-            archivo.write((char*)(cursos.back()), sizeof(Curso));
+            archivo.write((char*)(cursos[i]), sizeof(Curso));
         }
     }
 
 
+
+}
+void leerarchivo() {
+    
 
 }
 int main() {
@@ -292,6 +298,10 @@ int main() {
         if (opcion==3)
         {
             guardararchivo();
+        }
+        if (opcion==4)
+        {
+            leerarchivo();
         }
     }
     for (int i = 0; i < cursos.size(); i++)

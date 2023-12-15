@@ -5,6 +5,9 @@
 #include <string>
 
 using namespace std;
+Curso::Curso()
+{
+}
 Curso::Curso(string nombre) {
     this->nombre = nombre;
 }
